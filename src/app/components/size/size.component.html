@@ -1,0 +1,5 @@
+<div class="list-group">
+    <a routerLink="/sector/{{size}}" (click)="listIdeasBySize(size)" class="list-group-item"
+        *ngFor="let size of sizes"
+        routerLinkActive="bg-primary text-white font-weight-bold">{{size | titlecase}}</a>
+</div>

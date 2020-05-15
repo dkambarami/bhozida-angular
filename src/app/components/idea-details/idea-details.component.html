@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-4 col-md-4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/100x100" alt="image here" class="img-responsive" width="250">
+                </div>
+                <br />
+                <div class="thumbnail">
+                    <img src="assets/images/lady_business.PNG" alt="image here" class="img-responsive" width="250" height="300">
+                </div>
+                <br />
+                <div class="thumbnail">
+                    <img src="assets/images/main_business_idea.PNG" alt="image here" class="img-responsive" width="250">
+                </div>
+            </div>
+            <div class="col-8 col-md-8">
+                <h3>{{idea.name}}</h3>
+                <span class="text-primary">{{idea.sector | titlecase}} | {{idea.size | titlecase}} </span>
+                <h5>Description</h5>
+                <p><small>{{idea.description}}</small></p>
+                <h4>Process</h4>
+                <p><small>{{idea.process}}</small></p>
+                <h4>Market Analysis</h4>
+                <p><small>{{idea.market}}</small></p>
+                <h4>Inputs</h4>
+                <p><small>{{idea.inputs}}</small></p>
+                <h4>Support</h4>
+                <p><small>{{idea.support}}</small></p>
+                <h4>Financials</h4>
+                <app-cost-details></app-cost-details>
+                <br/>
+                <a routerLink="/ideas" class="btn btn-success"><i class="fas fa-arrow-left"></i>Home</a>
+            </div>
+        </div>
+    </div>
+</div>

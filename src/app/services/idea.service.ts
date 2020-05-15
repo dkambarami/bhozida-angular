@@ -10,7 +10,7 @@ import { Cost } from '../common/cost';
 })
 export class IdeaService {
 
-  private baseUrl = 'http://localhost:8084/api/v1/ideas';
+  private baseUrl = 'http://localhost:8085/api/v1/ideas';
   // private sectorUrl = 'http://localhost:8080/api/v1/ideas/search/sector?sector=agriculture';
   private costUrl: string;
 

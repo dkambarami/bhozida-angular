@@ -19,14 +19,16 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { AuthGuard } from './components/auth/auth.guard';
+import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogoutComponent } from './components/auth/logout/logout.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'ideas', pathMatch: 'full' },
-  { path: 'ideas',  component: IdeaListComponent },
-  { path: 'logout', component: LoginComponent, data: { title: 'Logout' } },
+  { path: '', canActivate: [AuthGuard],  redirectTo: 'ideas', pathMatch: 'full' },
+  { path: 'ideas',  canActivate: [AuthGuard], component: IdeaListComponent },
+  { path: 'logout', component: LogoutComponent, data: { title: 'Logout' } },
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
   { path: 'register', component: RegisterComponent, data: { title: 'Register' } },
   { path: 'ideas/:id', canActivate: [AuthGuard], component: IdeaDetailsComponent },
@@ -51,6 +53,7 @@ const routes: Routes = [
     AboutComponent,
     LoginComponent,
     RegisterComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,10 @@ const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule
   ],
-  providers: [{
+  providers: [
+    AuthGuard,
+    AuthService,
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true

@@ -23,10 +23,12 @@ import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './components/auth/logout/logout.component';
-
+import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';;
 
 const routes: Routes = [
   { path: '', canActivate: [AuthGuard],  redirectTo: 'ideas', pathMatch: 'full' },
+  { path: 'profile',  canActivate: [AuthGuard], component: ProfileDetailsComponent },
   { path: 'ideas',  canActivate: [AuthGuard], component: IdeaListComponent },
   { path: 'logout', component: LogoutComponent, data: { title: 'Logout' } },
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
@@ -54,6 +56,7 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     LogoutComponent,
+    ProfileDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    NgbModule
   ],
 
   exports: [

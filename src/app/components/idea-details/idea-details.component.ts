@@ -15,6 +15,7 @@ export class IdeaDetailsComponent implements OnInit {
 
 
   getIdeaInfo() {
+    console.log('nada');
     const id: number = +this.activatedRoutes.snapshot.paramMap.get('id');
     this.ideaService.get(id).subscribe(
       data => {

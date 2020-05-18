@@ -16,6 +16,7 @@ export class AuthService {
 
   login(data: any): Observable<any> {
     console.log(data);
+    localStorage.setItem('email', data.email);
     return this.http.post<any>(apiUrl + 'login', data)
       .pipe(
         tap(_ => this.isLoggedIn = true),
@@ -24,6 +25,7 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
+    localStorage.setItem('email', '');
     return this.http.get<any>(apiUrl + 'signout')
       .pipe(
         tap(_ => this.isLoggedIn = false),
@@ -32,7 +34,6 @@ export class AuthService {
   }
 
   register(data: any): Observable<any> {
-    console.log(data);
     return this.http.post<any>(apiUrl + 'register', data)
       .pipe(
         tap(_ => this.log('login')),

@@ -1,4 +1,4 @@
-<div class="list-group">
+<div class="list-group ">
     <a routerLink="/sector/{{sector}}" (click)="listIdeas(sector)" class="list-group-item"
         *ngFor="let sector of sectors"
         routerLinkActive="bg-primary text-white font-weight-bold">{{sector | titlecase}}</a>

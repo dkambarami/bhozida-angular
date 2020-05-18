@@ -9,7 +9,7 @@ import { IdeaService } from 'src/app/services/idea.service';
 })
 export class SectorComponent implements OnInit {
 
-  sectors: string[] = ['mining', 'manufacturing', 'services', 'agriculture'];
+  sectors: string[] = ['manufacturing', 'services', 'agriculture'];
   constructor(private ideaService: IdeaService, private router: Router) { }
 
 

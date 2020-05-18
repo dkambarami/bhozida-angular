@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Profile } from '../common/profile';
 import { User } from '../common/user';
 import { HttpClient } from '@angular/common/http';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class ProfileService {
 
   private baseUrl = 'http://localhost:8084/api/v1/users/';
   private userUrl = '';
+  private profileUrl = 'http://localhost:8084/api/v1/profiles/';
 
 
   constructor(private httpClient: HttpClient) {
@@ -29,11 +31,32 @@ export class ProfileService {
   }
 
 
-  //get user is giving me the user but I want the user id. nxaaaa
   getProfile(id: number): Observable<Profile> {
     const profileUrl = this.baseUrl + id + '/profile';
     console.log('data is here =====' + this.httpClient.get<Profile>(profileUrl));
     return this.httpClient.get<Profile>(profileUrl);
+  }
+
+  updateProfile(data: any): Observable<any> {
+    return this.httpClient.post<any>(this.profileUrl, data)
+      .pipe(
+        tap(_ => this.log('update')),
+        catchError(this.handleError('update', []))
+      );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      console.error(error); // log to console instead
+      this.log(`${operation} failed: ${error.message}`);
+
+      return of(result as T);
+    };
+  }
+
+  private log(message: string) {
+    console.log(message);
   }
 }
 

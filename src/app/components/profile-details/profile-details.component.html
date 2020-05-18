@@ -1,17 +1,16 @@
-
-
 <ngb-tabset [destroyOnHide]="false">
     <ngb-tab title="Profile">
-      <ng-template ngbTabContent>
-        <div class="tab-content py-4">
+        <ng-template ngbTabContent>
+            <div class="tab-content py-4">
                 <div class="tab-pane active" id="profile">
                     <h5 class="mb-3">{{user.fullname}}</h5>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-lg-6 order-lg-1 text-center">
                                 <label class="custom-file">
-                                <img src="assets/images/mugabe.png" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-                                <h6 class="mt-2 custom-file-control"></h6>
+                                    <img src="assets/images/mugabe.png" class="mx-auto img-fluid img-circle d-block"
+                                        alt="avatar">
+                                    <h6 class="mt-2 custom-file-control"></h6>
                                     <input type="file" id="file" class="custom-file-input">
                                 </label>
                             </div>
@@ -47,134 +46,93 @@
                     <!--/row-->
                 </div>
             </div>
-      </ng-template>
+        </ng-template>
     </ngb-tab>
-   
-     
+
+
     <ngb-tab>
-      <ng-template ngbTabTitle>Notifications</ng-template>
-      <ng-template ngbTabContent>
-        <div class="tab-pane" id="messages">
-            <table class="table table-hover table-striped">
-                <tbody>
-                    <tr>
-                        <td>
-                            <span class="float-right font-weight-bold ">3 hrs ago</span> Here is the latest market analysis for ...
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="float-right font-weight-bold">9/4</span> User J Master have added a new business idea
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-      </ng-template>
+        <ng-template ngbTabTitle>Notifications</ng-template>
+        <ng-template ngbTabContent>
+            <div class="tab-pane" id="messages">
+                <table class="table table-hover table-striped">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="float-right font-weight-bold ">3 hrs ago</span> Here is the latest market
+                                analysis for ...
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="float-right font-weight-bold">9/4</span> User J Master have added a new
+                                business idea
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ng-template>
     </ngb-tab>
-     
+
     <ngb-tab>
-      <ng-template ngbTabTitle>Edit</ng-template>
-      <ng-template ngbTabContent>
-        <div class="tab-pane" id="edit">
-            <form role="form">
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label"Full Name></label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="text" value="{{user.fullname}}">
+        <ng-template ngbTabTitle>Edit</ng-template>
+        <ng-template ngbTabContent>
+            <br />
+            <div class="tab-pane" id="edit">
+                <form role="form" id="profileForm" #profileform="ngForm" (ngSubmit)="onFormSubmit(profileform.value)">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Full Name</label>
+                        <div class="col-lg-4">
+                            <input class="form-control" name="fullname" #ngModel type="text"
+                                [(ngModel)]="user.fullname">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="email" value="{{user.email}}">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="email" name="email" #ngModel [(ngModel)]="user.email">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Business Type</label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="text" value="{{profile.businessType}}">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Business Type</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" name="businessType" #ngModel [(ngModel)]="profile.businessType">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Residence</label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="url" value="{{profile.countryOfResidence}}">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Residence</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="countryOfResidence" #ngModel [(ngModel)]="profile.countryOfResidence">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">House Ownership </label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="url" value="{{profile.houseOwnership}}">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">House Ownership </label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="houseOwnership" #ngModel [(ngModel)]="profile.houseOwnership">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Car Ownership </label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="url" value="{{profile.carOwnership}}">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Car Ownership </label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="carOwnership" #ngModel [(ngModel)]="profile.carOwnership">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">NetWorth</label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="url" value="{{profile.networthInUSD}}">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">NetWorth</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="networthInUSD" #ngModel [(ngModel)]="profile.networthInUSD">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label"></label>
-                    <div class="col-lg-9">
-                        <input type="reset" class="btn btn-secondary" value="Cancel">
-                        <input type="button" class="btn btn-primary" value="Save Changes">
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-9">
+                            <input type="reset" class="btn btn-secondary" value="Cancel">
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Save Changes</button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
-      </ng-template>
+                </form>
+            </div>
+        </ng-template>
     </ngb-tab>
-     
-  </ngb-tabset>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+</ngb-tabset>

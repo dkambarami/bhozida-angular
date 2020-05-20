@@ -15,9 +15,9 @@ export class ProfileService {
   private profile: Profile;
   private user_id: number;
 
-  private baseUrl = 'http://localhost:8080/api/v1/users/';
+  private baseUrl = 'http://localhost:8084/api/v1/users/';
   private userUrl = '';
-  private profileUrl = 'http://localhost:8080/api/v1/profiles/';
+  private profileUrl = 'http://localhost:8084/api/v1/profiles/';
 
 
   constructor(private httpClient: HttpClient) {

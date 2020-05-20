@@ -15,9 +15,9 @@ export class ProfileService {
   private profile: Profile;
   private user_id: number;
 
-  private baseUrl = 'http://localhost:8084/api/v1/users/';
+  private baseUrl = 'http://localhost:8080/api/v1/users/';
   private userUrl = '';
-  private profileUrl = 'http://localhost:8084/api/v1/profiles/';
+  private profileUrl = 'http://localhost:8080/api/v1/profiles/';
 
 
   constructor(private httpClient: HttpClient) {
@@ -38,7 +38,8 @@ export class ProfileService {
   }
 
   updateProfile(data: any): Observable<any> {
-    return this.httpClient.post<any>(this.profileUrl, data)
+    console.log('data is here =========================' + data);
+    return this.httpClient.put<any>(this.profileUrl + data.id, data)
       .pipe(
         tap(_ => this.log('update')),
         catchError(this.handleError('update', []))

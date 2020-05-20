@@ -21,24 +21,24 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { AuthGuard } from './components/auth/auth.guard';
 import { AuthService } from './services/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';;
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
-  { path: '', canActivate: [AuthGuard],  redirectTo: 'ideas', pathMatch: 'full' },
-  { path: 'profile',  canActivate: [AuthGuard], component: ProfileDetailsComponent },
-  { path: 'ideas',  canActivate: [AuthGuard], component: IdeaListComponent },
+  { path: '', canActivate: [AuthGuard], redirectTo: 'ideas', pathMatch: 'full' },
+  { path: 'profile', canActivate: [AuthGuard], component: ProfileDetailsComponent },
+  { path: 'ideas', canActivate: [AuthGuard], component: IdeaListComponent },
   { path: 'logout', component: LogoutComponent, data: { title: 'Logout' } },
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
   { path: 'register', component: RegisterComponent, data: { title: 'Register' } },
   { path: 'ideas/:id', canActivate: [AuthGuard], component: IdeaDetailsComponent },
   { path: 'search/:keyword', canActivate: [AuthGuard], component: IdeaListComponent },
   { path: 'sector/:sector', canActivate: [AuthGuard], component: IdeaListComponent },
-  { path: 'about', canActivate: [AuthGuard],  component: AboutComponent },
+  { path: 'about', canActivate: [AuthGuard], component: AboutComponent },
   { path: 'size/:size', canActivate: [AuthGuard], component: IdeaListComponent },
-  { path: '', canActivate: [AuthGuard],  redirectTo: '/ideas', pathMatch: 'full' },
+  { path: '', canActivate: [AuthGuard], redirectTo: '/ideas', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -67,6 +67,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule
   ],
@@ -85,10 +86,10 @@ const routes: Routes = [
     AuthGuard,
     AuthService,
     {
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  }],
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

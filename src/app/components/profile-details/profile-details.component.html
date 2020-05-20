@@ -87,10 +87,52 @@
                                 [(ngModel)]="user.fullname">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                    <div class="form-group row hidden">
+                        <label class="col-lg-3 col-form-label form-control-label">ID</label>
                         <div class="col-lg-9">
-                            <input class="form-control" type="email" name="email" #ngModel [(ngModel)]="user.email">
+                            <input class="form-control" type="text" name="id" #ngModel [(ngModel)]="profile.id">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Year of Birth</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" name="yearOfBirth" #ngModel [(ngModel)]="profile.yearOfBirth">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Marital Status</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" name="maritalStatus" #ngModel [(ngModel)]="profile.maritalStatus">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Number Of Direct Dependencies</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" name="numberOfDirectDependencies" #ngModel [(ngModel)]="profile.numberOfDirectDependencies">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">House Ownership </label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="houseOwnership" #ngModel [(ngModel)]="profile.houseOwnership">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Car Ownership </label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="carOwnership" #ngModel [(ngModel)]="profile.carOwnership">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">NetWorth</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="networthInUSD" #ngModel [(ngModel)]="profile.networthInUSD">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">NetWorth</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="networthInUSD" #ngModel [(ngModel)]="profile.networthInUSD">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -118,9 +160,132 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Biggest Expense</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="biggestExpense" #ngModel [(ngModel)]="profile.biggestExpense">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">NetWorth</label>
                         <div class="col-lg-9">
-                            <input class="form-control" type="url" name="networthInUSD" #ngModel [(ngModel)]="profile.networthInUSD">
+                            <select class="form-control" type="url" name="networthInUSD" #ngModel [(ngModel)]="profile.networthInUSD">
+                                <option>1000</option>
+                                <option>5000</option>
+                                <option>10000</option>
+                                <option>15000</option>
+                                <option>20000</option>
+                                <option>25000</option>
+                                <option>50000</option>
+                                <option>100000</option>
+                                <option>200000</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Residence</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="countryOfResidence" #ngModel [(ngModel)]="profile.countryOfResidence">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Entrepreneur History</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="entrepreneurHistory" #ngModel [(ngModel)]="profile.entrepreneurHistory">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">employees</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="employees" #ngModel [(ngModel)]="profile.employees">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Entrepreneur Start Year</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="entrepreneurStartYear" #ngModel [(ngModel)]="profile.entrepreneurStartYear">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Mentors</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="mentors" #ngModel [(ngModel)]="profile.mentors">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Mentees</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="mentees" #ngModel [(ngModel)]="profile.mentees">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Business Registered</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="businessRegistered" #ngModel [(ngModel)]="profile.businessRegistered">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Business Types Of Interest</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="businessTypesOfInterest" #ngModel [(ngModel)]="profile.businessTypesOfInterest">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Industries Of Interest</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="industriesOfInterest" #ngModel [(ngModel)]="profile.industriesOfInterest">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Finance Skills Investor</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="financeSkillsInvestor" #ngModel [(ngModel)]="profile.financeSkillsInvestor">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Business Partner Age Group</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="businessPartnerAgeGroup" #ngModel [(ngModel)]="profile.businessPartnerAgeGroup">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">businessPartnerGenderGroup</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="businessPartnerGenderGroup" #ngModel [(ngModel)]="profile.businessPartnerGenderGroup">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">attendedFinancialLiteracyCourses</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" type="url" name="attendedFinancialLiteracyCourses" #ngModel [(ngModel)]="profile.attendedFinancialLiteracyCourses">
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">attendedSalesCoachingCourses</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" type="url" name="attendedSalesCoachingCourses" #ngModel [(ngModel)]="profile.attendedSalesCoachingCourses">
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Best Three Motivational Books</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="url" name="bestThreeMotivationalBooks" #ngModel [(ngModel)]="profile.bestThreeMotivationalBooks">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Highest Qualification</label>
+                        <div class="col-lg-9">
+                            <select class="form-control" type="url" name="highestQualification" #ngModel [(ngModel)]="profile.highestQualification">
+                                <option>Certificate</option>
+                                <option>Degree</option>
+                                <option>High School</option>
+                                <option>None</option>
+                              </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -136,3 +301,5 @@
     </ngb-tab>
 
 </ngb-tabset>
+
+

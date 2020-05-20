@@ -60,36 +60,47 @@ export class ProfileDetailsComponent implements OnInit {
       });
 
     this.profileForm = this.formBuilder.group({
-      id: [null, Validators.required],
-      yearOfBirth: [null, Validators.required],
-      maritalStatus: [null, Validators.required],
-      numberOfDirectDependencies: [null, Validators.required],
-      houseOwnership: [null, Validators.required],
-      carOwnership: [null, Validators.required],
-      biggestExpense: [null, Validators.required],
-      networthInUSD: [null, Validators.required],
-      countryOfResidence: [null, Validators.required],
-      businessType: [null, Validators.required],
-      entrepreneurHistory: [null, Validators.required],
-      entrepreneurStartYear: [null, Validators.required],
-      employees: [null, Validators.required],
-      mentors: [null, Validators.required],
-      mentees: [null, Validators.required],
-      businessRegistered: [null, Validators.required],
-      businessTypesOfInterest: [null, Validators.required],
-      industriesOfInterest: [null, Validators.required],
-      financeSkillsInvestor: [null, Validators.required],
-      businessPartnerAgeGroup: [null, Validators.required],
-      businessPartnerGenderGroup: [null, Validators.required],
-      attendedFinancialLiteracyCourses: [null, Validators.required],
-      attendedSalesCoachingCourses: [null, Validators.required],
-      bestThreeMotivationalBooks: [null, Validators.required],
-      highestQualification: [null, Validators.required],
+      id: [this.profile.id, ],
+      yearOfBirth: [this.profile.yearOfBirth],
+      maritalStatus: [this.profile.maritalStatus],
+      numberOfDirectDependencies: [this.profile.numberOfDirectDependencies],
+      houseOwnership: [this.profile.houseOwnership],
+      carOwnership: [this.profile.carOwnership],
+      biggestExpense: [this.profile.biggestExpense],
+      networthInUSD: [this.profile.networthInUSD],
+      countryOfResidence: [this.profile.countryOfResidence],
+      businessType: [this.profile.businessType],
+      entrepreneurHistory: [this.profile.entrepreneurHistory],
+      entrepreneurStartYear: [this.profile.entrepreneurStartYear],
+      employees: [this.profile.employees],
+      mentors: [this.profile.mentors],
+      mentees: [this.profile.mentees],
+      businessRegistered: [this.profile.businessRegistered],
+      businessTypesOfInterest: [this.profile.businessTypesOfInterest],
+      industriesOfInterest: [this.profile.industriesOfInterest],
+      financeSkillsInvestor: [this.profile.financeSkillsInvestor],
+      businessPartnerAgeGroup: [this.profile.businessPartnerAgeGroup],
+      businessPartnerGenderGroup: [this.profile.businessPartnerGenderGroup],
+      attendedFinancialLiteracyCourses: [this.profile.attendedFinancialLiteracyCourses],
+      attendedSalesCoachingCourses: [this.profile.attendedSalesCoachingCourses],
+      bestThreeMotivationalBooks: [this.profile.bestThreeMotivationalBooks],
+      highestQualification: [this.profile.highestQualification],
     });
   }
 
   onFormSubmit(form: NgForm) {
     this.profileService.updateProfile(form)
+      .subscribe(res => {
+        if (res.token) {
+          this.router.navigate(['ideas']);
+        }
+      }, (err) => {
+        console.log(err);
+      });
+  }
+
+  submitHandler() {
+    this.profileService.updateProfile(this.profileForm)
       .subscribe(res => {
         if (res.token) {
           this.router.navigate(['ideas']);

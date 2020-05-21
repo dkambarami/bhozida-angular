@@ -25,7 +25,6 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    localStorage.setItem('email', '');
     return this.http.get<any>(apiUrl + 'signout')
       .pipe(
         tap(_ => this.isLoggedIn = false),

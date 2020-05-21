@@ -3,6 +3,8 @@ import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Valida
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { exit } from 'process';
+import { ProfileService } from 'src/app/services/profile.service';
+import { User } from 'src/app/common/user';
 
 
 @Component({
@@ -13,6 +15,7 @@ import { exit } from 'process';
 export class LoginComponent implements OnInit {
   searchMode: boolean;
   loginForm: FormGroup;
+  user: User;
   email = '';
   password = '';
   isLoadingResults = false;
@@ -38,7 +41,6 @@ export class LoginComponent implements OnInit {
   onFormSubmit(form: NgForm) {
     this.authService.login(form)
       .subscribe(res => {
-        console.log(res);
         if (res.token) {
           localStorage.setItem('token', res.token);
           console.log(res.token);

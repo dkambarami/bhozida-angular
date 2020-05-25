@@ -44,7 +44,7 @@ export class ProfileDetailsComponent implements OnInit {
   isLoadingResults = false;
 
   constructor(private formBuilder: FormBuilder,
-              private router: Router, private profileService: ProfileService, private activatedRoutes: ActivatedRoute) { }
+    private router: Router, private profileService: ProfileService, private activatedRoutes: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -60,7 +60,7 @@ export class ProfileDetailsComponent implements OnInit {
       });
 
     this.profileForm = this.formBuilder.group({
-      id: [this.profile.id, ],
+      id: [this.profile.id,],
       yearOfBirth: [this.profile.yearOfBirth],
       maritalStatus: [this.profile.maritalStatus],
       numberOfDirectDependencies: [this.profile.numberOfDirectDependencies],
@@ -97,6 +97,7 @@ export class ProfileDetailsComponent implements OnInit {
       }, (err) => {
         console.log(err);
       });
+    this.router.navigate(['ideas']);
   }
 
   submitHandler() {

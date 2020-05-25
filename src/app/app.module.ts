@@ -25,6 +25,7 @@ import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
 
 const routes: Routes = [
   { path: '', canActivate: [AuthGuard], redirectTo: 'ideas', pathMatch: 'full' },
@@ -57,6 +58,7 @@ const routes: Routes = [
     RegisterComponent,
     LogoutComponent,
     ProfileDetailsComponent,
+    ProfilePictureComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+<div class="col-lg-6 order-lg-1 text-center" enctype="multipart/form-data">
+    <label class="custom-file">
+        <img [src]="convertedImage"  class="mx-auto img-fluid img-circle d-block"
+            alt="avatar">
+        <h6 class="mt-2 custom-file-control"></h6>
+        <input type="file" id="file" class="custom-file-input" (change)='onFileChanged($event)'  >
+    </label>
+   On Upload
+   <br/>
+    <input type='button' (click)='onUpload()' value='upload'>
+</div>
+
+

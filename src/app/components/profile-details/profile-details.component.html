@@ -2,16 +2,19 @@
     <ngb-tab title="Profile">
         <ng-template ngbTabContent>
             <div class="tab-content py-4">
-                <div class="tab-pane active" id="profile">
+                <div class="tab-pane active " id="profile">
                     <h5 class="mb-3">{{user.fullname}}</h5>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-lg-6 order-lg-1 text-center">
                                 <label class="custom-file">
-                                    <img src="assets/images/mugabe.png" class="mx-auto img-fluid img-circle d-block"
-                                        alt="avatar">
-                                    <h6 class="mt-2 custom-file-control"></h6>
-                                    <input type="file" id="file" class="custom-file-input">
+                                    <img src="assets/images/profile_uni2.png"
+                                        class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                                    <h6></h6>
+                                    <br>
+                                    <!--TODO this has been deactivated because the profile picture is not read-->
+                                    <!-- <h6 class="mt-2 custom-file-control"></h6>
+                                    <input type="file" id="file" class="custom-file-input"> -->
                                 </label>
                             </div>
                             <h6> <strong>{{profile.financeSkillsInvestor | titlecase }} </strong>Investor</h6>
@@ -19,18 +22,18 @@
 
                         <div class="col-md-6">
                             <h6>Favourite Books</h6>
-                            <a href="#" class="badge badge-dark badge-pill"
+                            <a routerLink='' class="badge badge-dark badge-pill"
                                 *ngFor="let book of books">{{book | titlecase}}</a>
                             <hr>
                             <span class="badge badge-primary"><i class="fa fa-user"></i>
                                 {{profile.countryOfResidence}}</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i>
-                                {{profile.industriesOfInterest}}</span>
+                            <span class="badge badge-success"><i
+                                    class="fa fa-cog"></i>{{profile.industriesOfInterest}}</span>
                             <span class="badge badge-danger"><i class="fa fa-eye"></i> {{profile.mentees}}
                                 Mentees</span>
                         </div>
-                        <div class="col-md-12">
-                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Business History
+                        <div class="col-md-12 ">
+                            <h5 class="mt-2 bg-primary"><span class="fa fa-clock-o ion-clock float-right"></span> Business History
                             </h5>
                             <table class="table table-sm table-hover table-striped">
                                 <tbody>
@@ -319,7 +322,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">businessPartnerGenderGroup</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Business Partner Gender Group</label>
                         <div class="col-lg-9">
                             <select class="form-control" type="url" name="businessPartnerGenderGroup" #ngModel
                                 [(ngModel)]="profile.businessPartnerGenderGroup">
@@ -330,7 +333,7 @@
                     </div>
                     <div class="form-group row">
                         <label
-                            class="col-lg-3 col-form-label form-control-label">attendedFinancialLiteracyCourses</label>
+                            class="col-lg-3 col-form-label form-control-label">Attended Financial Literacy Courses</label>
                         <div class="col-lg-9">
                             <select class="form-control" type="url" name="attendedFinancialLiteracyCourses" #ngModel
                                 [(ngModel)]="profile.attendedFinancialLiteracyCourses">
@@ -340,7 +343,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">attendedSalesCoachingCourses</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Attended Sales Coaching Courses</label>
                         <div class="col-lg-9">
                             <select class="form-control" type="url" name="attendedSalesCoachingCourses" #ngModel
                                 [(ngModel)]="profile.attendedSalesCoachingCourses">
@@ -370,8 +373,7 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label"></label>
-                        <div class="col-lg-9">
-                            <input type="reset" class="btn btn-secondary" value="Cancel">
+                        <div class="col-lg-6">
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Save
                                 Changes</button>
                         </div>

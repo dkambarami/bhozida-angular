@@ -15,6 +15,7 @@ export class ProfileDetailsComponent implements OnInit {
   profile: Profile = new Profile();
   user: User = new User();
   books: string[];
+  industryChoices: string[];
   history: string[];
   profileForm: FormGroup;
   yearOfBirth: number;
@@ -57,6 +58,7 @@ export class ProfileDetailsComponent implements OnInit {
         this.profile = data;
         this.books = data.bestThreeMotivationalBooks.split(',');
         this.history = data.entrepreneurHistory.split(',');
+        this.industryChoices = data.industriesOfInterest.split(',');
       });
 
     this.profileForm = this.formBuilder.group({

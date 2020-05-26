@@ -3,7 +3,9 @@
         <ng-template ngbTabContent>
             <div class="tab-content py-4">
                 <div class="tab-pane active " id="profile">
-                    <h5 class="mb-3">{{user.fullname}}</h5>
+                    <h5 class="mb-3">{{user.fullname}} <span class="badge badge-success"><i class="fa fa-dollar"></i>
+                            {{profile.financeSkillsInvestor | titlecase }}
+                            Investor </span></h5>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="col-lg-6 order-lg-1 text-center">
@@ -17,29 +19,39 @@
                                     <input type="file" id="file" class="custom-file-input"> -->
                                 </label>
                             </div>
-                            <h6> <strong>{{profile.financeSkillsInvestor | titlecase }} </strong>Investor</h6>
+
                         </div>
 
                         <div class="col-md-6">
                             <h6>Favourite Books</h6>
                             <a routerLink='' class="badge badge-dark badge-pill"
                                 *ngFor="let book of books">{{book | titlecase}}</a>
-                            <hr>
-                            <span class="badge badge-primary"><i class="fa fa-user"></i>
+                            <hr class="profile_div">
+                            <h6>Preferred Industries</h6>
+                            <a routerLink='' class="badge badge-success badge-pill "
+                                *ngFor="let industry of industryChoices"><i class="fa fa-industry"></i>
+                                {{industry | titlecase}} </a>
+                            <hr class="profile_div">
+                            <h6>Mentees and Mentors</h6>
+                            <span class="badge badge-danger profile_div"><i class="fa fa-tree"></i> {{profile.mentees}}
+                                Mentee(s) </span>&nbsp;<span class="badge badge-success"><i class="fa fa-tree"></i>
+                                {{profile.mentors}} 
+                                Mentor(s)</span>
+                            <hr class="profile_div">
+                            <h6>Country of Residence</h6>
+                            <span class="badge badge-primary profile_div"><i class="fa fa-flag"></i>
                                 {{profile.countryOfResidence}}</span>
-                            <span class="badge badge-success"><i
-                                    class="fa fa-cog"></i>{{profile.industriesOfInterest}}</span>
-                            <span class="badge badge-danger"><i class="fa fa-eye"></i> {{profile.mentees}}
-                                Mentees</span>
                         </div>
                         <div class="col-md-12 ">
-                            <h5 class="mt-2 bg-primary"><span class="fa fa-clock-o ion-clock float-right"></span> Business History
+                            <h5 class="mt-12 "><span class="fa fa-clock-o ion-clock float-right"></span>
+                                Business History
                             </h5>
+                            <hr class="profile_div">
                             <table class="table table-sm table-hover table-striped">
                                 <tbody>
                                     <tr *ngFor="let history of history">
                                         <td>
-                                            <i class="fa fa-user"> </i>{{history}}
+                                            <i class="fa fa-industry"></i> {{history}}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -85,8 +97,8 @@
                 <form role="form" id="profileForm" #profileform="ngForm" (ngSubmit)="onFormSubmit(profileform.value)">
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Full Name</label>
-                        <div class="col-lg-4">
-                            <input class="form-control" name="fullname" #ngModel type="text"
+                        <div class="col-lg-9">
+                            <input readonly class="form-control" name="fullname" #ngModel type="text"
                                 [(ngModel)]="user.fullname">
                         </div>
                     </div>
@@ -133,8 +145,15 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Business Type</label>
                         <div class="col-lg-9">
-                            <input class="form-control" type="text" name="businessType" #ngModel
+                            <select class="form-control" type="url" name="businessType" #ngModel
                                 [(ngModel)]="profile.businessType">
+                                <option>Very Small</option>
+                                <option>Small</option>
+                                <option>Medium</option>
+                                <option>Large</option>
+                                <option>Partnership</option>
+                                <option>Other</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -215,8 +234,12 @@
                         <div class="col-lg-9">
                             <textarea class="form-control" type="url" name="entrepreneurHistory" #ngModel
                                 [(ngModel)]="profile.entrepreneurHistory"></textarea>
+                            <small class="text-danger">Enter a comma seperated list e.g started shop - mutare - 2018,
+                                started flea market - harare - 2020,business - town - year</small>
                         </div>
+
                     </div>
+
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">employees</label>
                         <div class="col-lg-9">
@@ -290,6 +313,8 @@
                         <div class="col-lg-9">
                             <input class="form-control" type="url" name="businessTypesOfInterest" #ngModel
                                 [(ngModel)]="profile.businessTypesOfInterest">
+                            <small class="text-danger">Enter a comma seperated list e.g technology, internet, fast
+                                foods</small>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -332,8 +357,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label
-                            class="col-lg-3 col-form-label form-control-label">Attended Financial Literacy Courses</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Attended Financial Literacy
+                            Courses</label>
                         <div class="col-lg-9">
                             <select class="form-control" type="url" name="attendedFinancialLiteracyCourses" #ngModel
                                 [(ngModel)]="profile.attendedFinancialLiteracyCourses">
@@ -343,7 +368,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Attended Sales Coaching Courses</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Attended Sales Coaching
+                            Courses</label>
                         <div class="col-lg-9">
                             <select class="form-control" type="url" name="attendedSalesCoachingCourses" #ngModel
                                 [(ngModel)]="profile.attendedSalesCoachingCourses">
@@ -357,6 +383,8 @@
                         <div class="col-lg-9">
                             <input class="form-control" type="url" name="bestThreeMotivationalBooks" #ngModel
                                 [(ngModel)]="profile.bestThreeMotivationalBooks">
+                            <small class="text-danger">Enter a comma seperated list e.g best salesman - unknown,
+                                leadership - myles munroe,see you at the top - ziglar</small>
                         </div>
                     </div>
                     <div class="form-group row">

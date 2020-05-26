@@ -15,7 +15,10 @@ h6 {
 .profile_div {
     margin-top: 0;
 }
-
+.no_margin {
+    margin-top: 0;
+    margin-bottom: 0;
+}
 
 body{
     font-family: 'Roboto Mono';

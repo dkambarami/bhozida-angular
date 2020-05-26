@@ -14,9 +14,12 @@ export class ProfileDetailsComponent implements OnInit {
   id: number;
   profile: Profile = new Profile();
   user: User = new User();
+
+  // temporary values for splitting to presentation
   books: string[];
   industryChoices: string[];
   history: string[];
+
   profileForm: FormGroup;
   yearOfBirth: number;
   maritalStatus: boolean;
